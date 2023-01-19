@@ -1,10 +1,10 @@
+import { SearchSection } from "./components/SearchSection/SearchSection"
+
 function App() {
 
   return (
     <>
-      <h1 className='text-6xl'>
-        app
-      </h1>
+      <SearchSection />
     </>
   )
 }
