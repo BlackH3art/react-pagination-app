@@ -1,4 +1,5 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
+import { useParams } from "react-router";
 import { ProductsContext } from "../../context/ProductsContext";
 
 import { ProductRow } from "../_Reusable/ProductRow";
@@ -6,7 +7,13 @@ import { ProductsTable } from "../_Reusable/ProductsTable";
 
 export const ProductsSection: FC = () => {
 
-  const { products } = useContext(ProductsContext);
+  const { products, setPage } = useContext(ProductsContext);
+  const { nr } = useParams();
+
+  useEffect(() => {
+    setPage(Number(nr));
+  }, []);
+  
 
   return (
     <section className="flex h-64 w-full justify-center bg-blue-200">
