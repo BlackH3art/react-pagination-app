@@ -1,3 +1,4 @@
+import { ProductsSection } from "./components/ProductsSection/ProductsSection"
 import { SearchSection } from "./components/SearchSection/SearchSection"
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
   return (
     <>
       <SearchSection />
+      <ProductsSection />
     </>
   )
 }
