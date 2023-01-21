@@ -9,6 +9,7 @@ export const ProductsContext = createContext<ProductsContextInterface>({
   page: 1,
   setPage: () => {},
   products: [],
+  totalPages: 0
 });
 
 interface Props {
@@ -18,6 +19,7 @@ interface Props {
 export const ProductsContextProvider: FC<Props> = ({ children }) => {
 
   const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
   const [products, setProducts] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
@@ -29,6 +31,7 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
       
       const { data } = await getProductsByPage(page);
       setProducts(data.data);
+      setTotalPages(data.total_pages);
       
     } catch (error) {
       console.log(error);
@@ -40,7 +43,8 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
     <ProductsContext.Provider value={{
       page,
       setPage,
-      products
+      products,
+      totalPages
     }}>
       {children}
     </ProductsContext.Provider>

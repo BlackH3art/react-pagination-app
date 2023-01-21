@@ -5,6 +5,7 @@ import { ProductsContext } from "../../context/ProductsContext";
 import { ProductContainer } from "../_Reusable/ProductContainer";
 import { ProductRow } from "../_Reusable/ProductRow";
 import { ProductsTable } from "../_Reusable/ProductsTable";
+import { Pagination } from "./Pagination";
 
 export const ProductsSection: FC = () => {
 
@@ -13,7 +14,7 @@ export const ProductsSection: FC = () => {
 
   useEffect(() => {
     setPage(Number(nr));
-  }, []);
+  }, [nr]);
   
 
   return (
@@ -30,6 +31,8 @@ export const ProductsSection: FC = () => {
           />
         ))}
       </ProductsTable>
+
+      <Pagination />
 
     </ProductContainer>
   );
