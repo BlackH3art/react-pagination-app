@@ -5,4 +5,5 @@ export interface ProductsContextInterface {
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
   products: ProductInterface[];
+  totalPages: number;
 }
