@@ -12,15 +12,17 @@ function App() {
 
   return (
     <Router>
-      <SearchSection />
+      <div className="min-h-screen bg-gradient-to-b from-[#fb118e20] to-white border-t-[1px] border-myPink">
+        <SearchSection />
 
-      <Routes>
-        <Route path='/' element={ <Navigate to={`/page/${page}`} />} />
-        <Route path='/page/:nr' element={ <ProductsSection /> } />
-        <Route path='/:id' element={ <SingleProduct /> } />
+        <Routes>
+          <Route path='/' element={ <Navigate to={`/page/${page}`} />} />
+          <Route path='/page/:nr' element={ <ProductsSection /> } />
+          <Route path='/:id' element={ <SingleProduct /> } />
 
-        <Route path="/*" element={ <Navigate to={`/page/${page}`} />} />
-      </Routes>
+          <Route path="/*" element={ <Navigate to={`/page/${page}`} />} />
+        </Routes>
+      </div>
     </Router>
   )
 }

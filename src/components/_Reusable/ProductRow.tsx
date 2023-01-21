@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { ProductCell } from "./ProductCell";
 
 interface Props {
   id: number;
@@ -10,18 +11,23 @@ interface Props {
 export const ProductRow: FC<Props> = ({ id, name, year, bg }) => {
 
   return (
-    <tr style={{ backgroundColor: `${bg}`}}>
-      <td>
+    <tr className="bg-slate-100 hover:bg-slate-200 hover:cursor-pointer duration-300">
+      <ProductCell>
         {id}
-      </td>
+      </ProductCell>
 
-      <td>
-        {name}
-      </td>
+      <ProductCell>
+        <div 
+          className="rounded-lg"
+          style={{ backgroundColor: `${bg}`}}
+        >
+          {name}
+        </div>
+      </ProductCell>
 
-      <td>
+      <ProductCell>
         {year}
-      </td>
+      </ProductCell>
     </tr>
   )
 }
