@@ -6,8 +6,6 @@ interface Props {
 
 export const ProductCell: FC<Props> = ({ children }) => (
   <td className="p-2 text-center">
-    <p>
-      {children}
-    </p>
+    {children}
   </td>
 );

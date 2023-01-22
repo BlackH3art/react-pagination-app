@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { ErrorInterface } from "./ErrorInterface";
 import { ProductInterface } from "./ProductInterface";
 
 export interface ProductsContextInterface {
@@ -8,4 +9,10 @@ export interface ProductsContextInterface {
   totalPages: number;
   activePerPage: number;
   setActivePerPage: Dispatch<SetStateAction<number>>;
+  showDetails: boolean;
+  setShowDetails: Dispatch<SetStateAction<boolean>>;
+  selectedProduct: ProductInterface | null;
+  setSelectedProduct: Dispatch<SetStateAction<ProductInterface | null>>;
+  loading: boolean;
+  errorObject: ErrorInterface | null;
 }

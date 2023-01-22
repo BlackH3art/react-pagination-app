@@ -1,6 +1,8 @@
 import { FC, useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { ProductsContext } from "../../context/ProductsContext";
+import { ErrorMessage } from "../_Reusable/ErrorMessage";
+import { LoadingRow } from "../_Reusable/LoadingRow";
 
 import { ProductContainer } from "../_Reusable/ProductContainer";
 import { ProductRow } from "../_Reusable/ProductRow";
@@ -11,7 +13,7 @@ import { ProductsOptions } from "./ProductsOptions";
 
 export const ProductsSection: FC = () => {
 
-  const { products, setPage, page } = useContext(ProductsContext);
+  const { products, setPage, page, loading, errorObject } = useContext(ProductsContext);
   const { nr } = useParams();
 
   useEffect(() => {
@@ -25,17 +27,23 @@ export const ProductsSection: FC = () => {
 
         <ProductsOptions />
 
-        <ProductsTable>
-          {products.map((product, idx) => (
-            <ProductRow 
-              key={idx}
-              id={product.id}
-              name={product.name}
-              year={product.year}
-              bg={product.color}
-            />
-          ))}
-        </ProductsTable>
+        {errorObject ? (
+          <ErrorMessage msg={errorObject.msg} code={errorObject.code} />
+        ) : (
+          <ProductsTable>
+            {loading ? <LoadingRow /> : products.map((product, idx) => (
+              <ProductRow 
+                key={idx}
+                id={product.id}
+                name={product.name}
+                year={product.year}
+                bg={product.color}
+                product={product}
+              />
+            ))}
+          </ProductsTable>
+        )}
+
       </TableContainer>
 
       <Pagination />

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { DetailsModal } from "./components/DetailsModal/DetailsModal";
 
 import { ProductsSection } from "./components/ProductsSection/ProductsSection";
 import { SearchSection } from "./components/SearchSection/SearchSection";
@@ -8,7 +9,7 @@ import { ProductsContext } from "./context/ProductsContext";
 
 function App() {
 
-  const { page } = useContext(ProductsContext);
+  const { page, showDetails } = useContext(ProductsContext);
 
   return (
     <Router>
@@ -22,6 +23,8 @@ function App() {
 
           <Route path="/*" element={ <Navigate to={`/page/${page}`} />} />
         </Routes>
+
+        {showDetails ? <DetailsModal /> : null}
       </div>
     </Router>
   )
