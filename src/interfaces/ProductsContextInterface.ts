@@ -8,4 +8,8 @@ export interface ProductsContextInterface {
   totalPages: number;
   activePerPage: number;
   setActivePerPage: Dispatch<SetStateAction<number>>;
+  showDetails: boolean;
+  setShowDetails: Dispatch<SetStateAction<boolean>>;
+  selectedId: number | null;
+  setSelectedId: Dispatch<SetStateAction<number | null>>;
 }
