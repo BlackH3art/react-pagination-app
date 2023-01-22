@@ -5,5 +5,5 @@ const API = axios.create({
   baseURL: "https://reqres.in/api/products",
 });
 
-export const getProductsByPage = (page: number) => API.get<ProductsResponseInterface>(`/?per_page=5&page=${page}`);
+export const getProductsByPage = (page: number, perPage: number) => API.get<ProductsResponseInterface>(`/?per_page=${perPage}&page=${page}`);
 export const getSingleProduct = (id: number) => API.get<SingleProductResponseInterface>(`/${id}`);

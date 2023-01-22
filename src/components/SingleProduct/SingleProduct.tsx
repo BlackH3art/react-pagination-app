@@ -7,6 +7,7 @@ import { ProductRow } from "../_Reusable/ProductRow";
 import { ProductsTable } from "../_Reusable/ProductsTable";
 
 import { getSingleProduct } from "../../api";
+import { TableContainer } from "../_Reusable/TableContainer";
 
 export const SingleProduct: FC = () => {
 
@@ -35,18 +36,20 @@ export const SingleProduct: FC = () => {
 
   return (
     <ProductContainer>
+      <TableContainer>
 
-      <ProductsTable>
-        {product ? (
-          <ProductRow 
-            id={product.id}
-            name={product.name}
-            year={product.year}
-            bg={product.color}
-          />
-        ) : null}
-      </ProductsTable>
-
+        <ProductsTable>
+          {product ? (
+            <ProductRow 
+              id={product.id}
+              name={product.name}
+              year={product.year}
+              bg={product.color}
+            />
+          ) : null}
+        </ProductsTable>
+        
+      </TableContainer>
     </ProductContainer>
   )
 }

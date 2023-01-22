@@ -5,7 +5,9 @@ import { ProductsContext } from "../../context/ProductsContext";
 import { ProductContainer } from "../_Reusable/ProductContainer";
 import { ProductRow } from "../_Reusable/ProductRow";
 import { ProductsTable } from "../_Reusable/ProductsTable";
+import { TableContainer } from "../_Reusable/TableContainer";
 import { Pagination } from "./Pagination";
+import { ProductsOptions } from "./ProductsOptions";
 
 export const ProductsSection: FC = () => {
 
@@ -19,18 +21,22 @@ export const ProductsSection: FC = () => {
 
   return (
     <ProductContainer>
+      <TableContainer>
 
-      <ProductsTable>
-        {products.map((product, idx) => (
-          <ProductRow 
-            key={idx}
-            id={product.id}
-            name={product.name}
-            year={product.year}
-            bg={product.color}
-          />
-        ))}
-      </ProductsTable>
+        <ProductsOptions />
+
+        <ProductsTable>
+          {products.map((product, idx) => (
+            <ProductRow 
+              key={idx}
+              id={product.id}
+              name={product.name}
+              year={product.year}
+              bg={product.color}
+            />
+          ))}
+        </ProductsTable>
+      </TableContainer>
 
       <Pagination />
 
