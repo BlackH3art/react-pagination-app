@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { ErrorInterface } from "./ErrorInterface";
 import { ProductInterface } from "./ProductInterface";
 
 export interface ProductsContextInterface {
@@ -13,4 +14,5 @@ export interface ProductsContextInterface {
   selectedId: number | null;
   setSelectedId: Dispatch<SetStateAction<number | null>>;
   loading: boolean;
+  errorObject: ErrorInterface | null;
 }
