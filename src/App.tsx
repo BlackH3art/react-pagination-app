@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { DetailsModal } from "./components/DetailsModal/DetailsModal";
 
 import { ProductsSection } from "./components/ProductsSection/ProductsSection";
