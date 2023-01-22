@@ -20,7 +20,7 @@ export const Pagination: FC = () => {
   }
 
   return (
-    <div className="bg-gray-500">
+    <div className="p-2 flex w-24 justify-between">
 
       <PaginationButton 
         icon={<AiOutlineArrowLeft size={24} />} 

@@ -10,7 +10,7 @@ export const PaginationButton: FC<Props> = ({ icon, handler, disabled }) => {
 
   return (
     <button 
-      className="" 
+      className="p-2 rounded-full hover:bg-slate-200 duration-300" 
       style={{ color: disabled ? "gray" : "black" }}
       onClick={handler} 
       disabled={disabled} 

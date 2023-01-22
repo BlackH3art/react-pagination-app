@@ -9,7 +9,9 @@ export const ProductsContext = createContext<ProductsContextInterface>({
   page: 1,
   setPage: () => {},
   products: [],
-  totalPages: 0
+  totalPages: 0,
+  activePerPage: 5,
+  setActivePerPage: () => {},
 });
 
 interface Props {
@@ -19,17 +21,18 @@ interface Props {
 export const ProductsContextProvider: FC<Props> = ({ children }) => {
 
   const [page, setPage] = useState<number>(1);
+  const [activePerPage, setActivePerPage] = useState<number>(5);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [products, setProducts] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
     fetchProducts();
-  }, [page]);
+  }, [page, activePerPage]);
   
   async function fetchProducts() {
     try {
       
-      const { data } = await getProductsByPage(page);
+      const { data } = await getProductsByPage(page, activePerPage);
       setProducts(data.data);
       setTotalPages(data.total_pages);
       
@@ -44,7 +47,9 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
       page,
       setPage,
       products,
-      totalPages
+      totalPages,
+      activePerPage,
+      setActivePerPage,
     }}>
       {children}
     </ProductsContext.Provider>
