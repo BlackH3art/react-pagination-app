@@ -18,20 +18,23 @@ export const SearchBar: FC = () => {
   return (
     <form onSubmit={handleSubmit}>
 
-      <label>
+      <label className="block mb-2 pl-2">
         <p>
           Find product by id:
         </p>
       </label>
       
       <input 
-        className=""
+        className="p-2 bg-[rgba(255,255,255,0.50)] focus:bg-[rgba(255,255,255,0.80)] rounded-lg border-[1px] focus:border-myPink outline-none duration-300"
         type="text" 
+        placeholder="id"
         onChange={handleChange}
         value={idToFetch}
       />
       
-      <button type="submit">Search</button>
+      <button type="submit" className="bg-myPink py-2 px-4 hover:bg-[rgb(216,15,122)] duration-300 rounded-lg text-white font-semibold ml-2">
+        Search
+      </button>
 
     </form>
   )
