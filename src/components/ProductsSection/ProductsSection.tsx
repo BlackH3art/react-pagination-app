@@ -11,11 +11,11 @@ import { ProductsOptions } from "./ProductsOptions";
 
 export const ProductsSection: FC = () => {
 
-  const { products, setPage } = useContext(ProductsContext);
+  const { products, setPage, page } = useContext(ProductsContext);
   const { nr } = useParams();
 
   useEffect(() => {
-    setPage(Number(nr));
+    if(page !== Number(nr)) setPage(Number(nr));
   }, [nr]);
   
 

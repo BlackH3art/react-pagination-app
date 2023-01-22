@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ProductsContext } from '../../context/ProductsContext';
 
 interface Props {
@@ -7,10 +8,12 @@ interface Props {
 
 export const OptionButton: FC<Props> = ({ perPage }) => {
 
-  const { activePerPage, setActivePerPage } = useContext(ProductsContext)
+  const { activePerPage, setActivePerPage } = useContext(ProductsContext);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setActivePerPage(perPage);
+    navigate(`/page/1`);
   }
 
   return (

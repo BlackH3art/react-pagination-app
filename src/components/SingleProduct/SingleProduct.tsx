@@ -8,6 +8,7 @@ import { ProductsTable } from "../_Reusable/ProductsTable";
 
 import { getSingleProduct } from "../../api";
 import { TableContainer } from "../_Reusable/TableContainer";
+import { NavigateBack } from "./NavigateBack";
 
 export const SingleProduct: FC = () => {
 
@@ -37,6 +38,8 @@ export const SingleProduct: FC = () => {
   return (
     <ProductContainer>
       <TableContainer>
+
+        <NavigateBack />
 
         <ProductsTable>
           {product ? (

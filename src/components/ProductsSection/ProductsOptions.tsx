@@ -1,11 +1,13 @@
 import { FC } from 'react';
+
 import { OptionButton } from '../_Reusable/OptionButton';
 import { Title } from '../_Reusable/Title';
+import { TitleContainer } from '../_Reusable/TitleContainer';
 
 export const ProductsOptions: FC = () => {
 
   return (
-    <div className="flex justify-between border-b-[1px] pb-2 w-full">
+    <TitleContainer>
 
       <Title title='Products' />
 
@@ -14,6 +16,6 @@ export const ProductsOptions: FC = () => {
         <OptionButton perPage={10} />
         <OptionButton perPage={15} />
       </div>
-    </div>
+    </TitleContainer>
   )
 }
