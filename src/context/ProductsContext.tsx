@@ -16,6 +16,7 @@ export const ProductsContext = createContext<ProductsContextInterface>({
   setShowDetails: () => {},
   selectedId: null,
   setSelectedId: () => {},
+  loading: false,
 });
 
 interface Props {
@@ -30,6 +31,7 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [showDetails, setShowDetails] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     fetchProducts();
@@ -37,12 +39,16 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
   
   async function fetchProducts() {
     try {
-      
+      setLoading(true);
+
       const { data } = await getProductsByPage(page, activePerPage);
       setProducts(data.data);
       setTotalPages(data.total_pages);
+
+      setLoading(false);
       
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   }
@@ -60,6 +66,7 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
       setShowDetails,
       selectedId,
       setSelectedId,
+      loading,
     }}>
       {children}
     </ProductsContext.Provider>

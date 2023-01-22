@@ -12,4 +12,5 @@ export interface ProductsContextInterface {
   setShowDetails: Dispatch<SetStateAction<boolean>>;
   selectedId: number | null;
   setSelectedId: Dispatch<SetStateAction<number | null>>;
+  loading: boolean;
 }

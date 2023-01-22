@@ -1,6 +1,7 @@
 import { FC, useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { ProductsContext } from "../../context/ProductsContext";
+import { LoadingRow } from "../_Reusable/LoadingRow";
 
 import { ProductContainer } from "../_Reusable/ProductContainer";
 import { ProductRow } from "../_Reusable/ProductRow";
@@ -11,7 +12,7 @@ import { ProductsOptions } from "./ProductsOptions";
 
 export const ProductsSection: FC = () => {
 
-  const { products, setPage, page } = useContext(ProductsContext);
+  const { products, setPage, page, loading } = useContext(ProductsContext);
   const { nr } = useParams();
 
   useEffect(() => {
@@ -26,7 +27,8 @@ export const ProductsSection: FC = () => {
         <ProductsOptions />
 
         <ProductsTable>
-          {products.map((product, idx) => (
+
+          {loading ? <LoadingRow /> : products.map((product, idx) => (
             <ProductRow 
               key={idx}
               id={product.id}

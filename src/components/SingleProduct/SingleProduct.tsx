@@ -9,6 +9,7 @@ import { ProductsTable } from "../_Reusable/ProductsTable";
 import { getSingleProduct } from "../../api";
 import { TableContainer } from "../_Reusable/TableContainer";
 import { NavigateBack } from "./NavigateBack";
+import { LoadingRow } from "../_Reusable/LoadingRow";
 
 export const SingleProduct: FC = () => {
 
@@ -42,7 +43,7 @@ export const SingleProduct: FC = () => {
         <NavigateBack />
 
         <ProductsTable>
-          {product ? (
+          {loading ? <LoadingRow /> : product ? (
             <ProductRow 
               id={product.id}
               name={product.name}
