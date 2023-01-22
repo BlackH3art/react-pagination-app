@@ -11,8 +11,8 @@ export interface ProductsContextInterface {
   setActivePerPage: Dispatch<SetStateAction<number>>;
   showDetails: boolean;
   setShowDetails: Dispatch<SetStateAction<boolean>>;
-  selectedId: number | null;
-  setSelectedId: Dispatch<SetStateAction<number | null>>;
+  selectedProduct: ProductInterface | null;
+  setSelectedProduct: Dispatch<SetStateAction<ProductInterface | null>>;
   loading: boolean;
   errorObject: ErrorInterface | null;
 }

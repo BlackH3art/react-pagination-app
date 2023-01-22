@@ -38,6 +38,7 @@ export const ProductsSection: FC = () => {
                 name={product.name}
                 year={product.year}
                 bg={product.color}
+                product={product}
               />
             ))}
           </ProductsTable>

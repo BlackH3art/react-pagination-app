@@ -21,15 +21,15 @@ const ColorElement: FC<Props> = ({ color }) => (
 
 export const DetailsModal: FC = () => {
 
-  const { selectedId, products, setSelectedId, setShowDetails } = useContext(ProductsContext);
+  const { selectedProduct, setSelectedProduct, setShowDetails } = useContext(ProductsContext);
   const node = useRef(null);
 
   const closingSpaceRef = useClickOutside(node, () => {
-    setSelectedId(null);
+    setSelectedProduct(null);
     setShowDetails(false);
   });
   
-  const selectedProduct = products.filter(item => item.id === selectedId).pop();
+  
 
   return (
     <div className="flex items-center justify-center bg-[rgba(0,0,0,0.20)] w-full h-full absolute top-0 backdrop-blur-" ref={closingSpaceRef} >

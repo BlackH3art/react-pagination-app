@@ -1,5 +1,6 @@
 import { FC, useContext } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 
 import { ProductCell } from "./ProductCell";
 
@@ -8,14 +9,15 @@ interface Props {
   name: string;
   year: number;
   bg: string;
+  product: ProductInterface;
 }
 
-export const ProductRow: FC<Props> = ({ id, name, year, bg }) => {
+export const ProductRow: FC<Props> = ({ id, name, year, bg, product }) => {
 
-  const { setSelectedId, setShowDetails } = useContext(ProductsContext);
+  const { setSelectedProduct, setShowDetails } = useContext(ProductsContext);
 
   const handleClick = () => {
-    setSelectedId(id);
+    setSelectedProduct(product);
     setShowDetails(true);
   }
 

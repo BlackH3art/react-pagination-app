@@ -61,6 +61,7 @@ export const SingleProduct: FC = () => {
                 name={product.name}
                 year={product.year}
                 bg={product.color}
+                product={product}
               />
             ) : null}
           </ProductsTable>

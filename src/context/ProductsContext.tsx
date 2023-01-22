@@ -15,8 +15,8 @@ export const ProductsContext = createContext<ProductsContextInterface>({
   setActivePerPage: () => {},
   showDetails: false,
   setShowDetails: () => {},
-  selectedId: null,
-  setSelectedId: () => {},
+  selectedProduct: null,
+  setSelectedProduct: () => {},
   loading: false,
   errorObject: null,
 });
@@ -32,7 +32,7 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [showDetails, setShowDetails] = useState<boolean>(false);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<ProductInterface | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [errorObject, setErrorObject] = useState<ErrorInterface | null>(null);
 
@@ -76,8 +76,8 @@ export const ProductsContextProvider: FC<Props> = ({ children }) => {
       setActivePerPage,
       showDetails,
       setShowDetails,
-      selectedId,
-      setSelectedId,
+      selectedProduct,
+      setSelectedProduct,
       loading,
       errorObject,
     }}>
